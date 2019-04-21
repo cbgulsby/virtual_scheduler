@@ -10,6 +10,7 @@ int ts[8] = {0,0,0,0,0,0,0,0};
 int x = 4096;
 int mem_alloc[4096];
 int mem_alloc_ptr = 0;
+int disk = 8192;
 typedef struct {
 	long mem: 12;
 	long disk: 13;
@@ -414,8 +415,15 @@ void getPageTable()
 	int tempDirty = 0;
 	for(int i = 0; i < 256; i++)
 	{
-		fscanf(fp, )
-		page.pgTable[i].mem = 
+		fseek(fp, 0, 0);
+		fscanf(fp, "%6i", &tempMem);
+		fseek(fp, 6, 0);
+		fscanf(fp, "%7i", &tempDisk);
+		fseek(fp, 7, 0);
+		fscanf(fp, "%i", &tempDirty);
+		page.pgTable[i].mem = tempMem;
+		page.pgTable[i].disk = tempDisk;
+		page.pgTable[i].dirty = tempDirty;
 	}
 }
 
@@ -425,11 +433,10 @@ main ()
 	load_proc(10);
   	printf("I got so far\nBut in the end\nIt didn't even matter\n");
 
-  	stats();
-  	// int i;
-  	// for (i = 0; i < ts[7]; ++i)
-  	// {
-  	// 	printf("%i\n", qs[7][i]);
-  	// }
+  	//stats();
+  	
+	getPageTable();
+	printf("mem is: %i\n", page.pgTable[0].mem);
+
 	return 0;
 }

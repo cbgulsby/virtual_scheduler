@@ -17,7 +17,7 @@ proc_gen(int n)
 
 	for(int i = 0; i < 256; ++i)
 	{
-		fprintf(fp, "%6d%7d%2d\n", 0);
+		fprintf(fp, "%6d%7d%2d\n", 9);
 	}
 
 	fprintf(fp, "%9i\n", 0);								// position
@@ -42,18 +42,5 @@ main()
 	{	
 		proc_gen(i);
 	}
-	/*for (i = 0; i < fileNum; i++) 					//number of files
-	{
-		fp = fopen("mem", "w");
-		fprintf(fp, "000 %9i", w);
-		fprintf(fp, "001 %9i", x);
-		fprintf(fp, "010 %9i", y);
-		fprintf(fp, "011 %9i", z);
-		for (j = 0; j < numData; j++)				//numbers in the file
-		{
-			fprintf(fp, "");
-		}
-		fclose();
-	}*/
 	return 0;
 }
