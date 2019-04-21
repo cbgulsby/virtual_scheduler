@@ -1,2 +1,4 @@
 proc*
 *.o
+gen
+schedule
