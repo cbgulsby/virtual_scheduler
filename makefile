@@ -1,6 +1,6 @@
 OBJS  = exec.o utils.o
 OBKS  = gen.o utils.o
-OOPTS = -Wall -Wextra -g -c
+OOPTS = -Wall -Wextra -g -c -std=c99
 LOPTS = -Wall -Wextra -g
 
 all: schedule gen

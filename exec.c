@@ -14,7 +14,7 @@ void
 proc_open (int n)
 {
 	char	s[32];
-	sprintf(s, "%i", n);
+	sprintf(s, "proc%i", n);
 	fp = fopen(s, "r+");
 	if (!fp) dam("file did not open");
 	fseek(fp, 0, 0);
