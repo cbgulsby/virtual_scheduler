@@ -7,9 +7,22 @@ static FILE* 	fp;
 static int		pos, remain;
 int qs[8][1 << 20];
 int ts[8] = {0,0,0,0,0,0,0,0};
+int x = 4096;
+int mem_alloc[4096];
+int mem_alloc_ptr = 0;
+typedef struct {
+	long mem: 12;
+	long disk: 13;
+	long dirty: 1;
+} pgTableEntry;
 
+typedef struct 
+{
+	pgTableEntry pgTable[256];
+}pgTable;
 
-//opens process file
+pgTable page;
+
 void
 proc_open (int n)
 {
@@ -372,6 +385,38 @@ stats()
 	temp_dev3 = temp_dev3 / ts[7];
 	std_dev3 = sqrt(temp_dev3);
 	printf("std dev of priority 3: %f\n", std_dev3);
+}
+
+//functions added for pageTable: 
+/*
+void getPageTable(): reads pageTable from file (every time proc opens)
+void putPageTable(): prints pageTable to file (every time proc closes)
+int alloc_mem()
+{
+	if(x) return x--;
+	if(mem_alloc_ptr == 0) return 0;
+	else return mem_alloc[mem_alloc_ptr--];
+}
+void free_mem(int pageIndex)
+{
+	mem_alloc[mem_alloc_ptr++] = pageIndex;
+}
+int get_disk():
+void free_disk():
+int LRU():
+*/
+//opens process file
+
+void getPageTable()
+{
+	int tempMem = 0;
+	int tempDisk = 0;
+	int tempDirty = 0;
+	for(int i = 0; i < 256; i++)
+	{
+		fscanf(fp, )
+		page.pgTable[i].mem = 
+	}
 }
 
 int 

@@ -15,10 +15,10 @@ proc_gen(int n)
 	fp = fopen(s, "w");
 	if (!fp) dam("file did not open");
 
-	// for(int i = 0; i < 256; ++i)
-	// {
-	// 	fprintf(fp, "0000000000000000\n");
-	// }
+	for(int i = 0; i < 256; ++i)
+	{
+		fprintf(fp, "%6d%7d%2d\n", 0);
+	}
 
 	fprintf(fp, "%9i\n", 0);								// position
 	fprintf(fp, "%9i\n", random_between(0,3));				// priority

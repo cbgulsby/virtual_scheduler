@@ -14,9 +14,9 @@ Then run 'make scheduler'
 
 What is contained in project:
 
-This folder contains the initial working version of the scheduler (exec.c), 
-10 process file made by the generator, a readme, a garbage file (sched.c),
-a template for me to reference for my processes, and a utils file.
+This folder contains the initial working version of the scheduler (exec.c),
+a readme, a garbage file (sched.c),a template for me to reference for my processes,
+and a utils file.
 
 Stats:
 	version 0:
