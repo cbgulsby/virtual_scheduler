@@ -27,4 +27,4 @@ scheduler	: schedule
 	./schedule
 
 clean	: 
-	rm -f *.o schedule gen
+	rm -f *.o schedule gen proc*

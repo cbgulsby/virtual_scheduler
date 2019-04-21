@@ -9,7 +9,7 @@ int qs[8][1 << 20];
 int ts[8] = {0,0,0,0,0,0,0,0};
 
 
-
+//opens process file
 void
 proc_open (int n)
 {
@@ -23,6 +23,7 @@ proc_open (int n)
 	fscanf(fp, "%i", &remain);
 }
 
+//closes process file
 void
 proc_close ()
 {
@@ -33,11 +34,11 @@ proc_close ()
 	fclose(fp);
 }
 
+//returns time process took to execute
 int
 proc_exec (int n, int quant)
 {
 	int count = 0;
-	// int i     = 0;
 	int x;
 
 	proc_open(n);
@@ -80,6 +81,7 @@ proc_exec (int n, int quant)
 	return count;
 }
 
+//gets priority of process (needs to be changed to accomodate page table)
 int 
 get_priority (int proc)
 {
@@ -91,6 +93,7 @@ get_priority (int proc)
 	return priority;
 }
 
+//gets memory of process (needs to be changed to accomodate page table)
 int
 get_memory (int proc)
 {
